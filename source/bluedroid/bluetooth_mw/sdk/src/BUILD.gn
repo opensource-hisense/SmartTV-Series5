@@ -1,0 +1,98 @@
+#
+#  Copyright (C) 2015 Google, Inc.
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at:
+#
+#  http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+
+shared_library("libbt-mw") {
+  # wrap layer
+  sources = [
+    "../wrap/src/linuxbt_common.c",
+    "../wrap/src/linuxbt_msg.c",
+  ]
+
+  sources += [
+    "bluetooth_sync.c",
+    "bt_mw_cli.c",
+    "bt_mw_common.c",
+    "bt_mw_devices_info.c",
+    "bt_mw_manager.c",
+    "bt_mw_msg.c",
+    "bt_mw_log.c",
+    "c_bt_mw_manager.c",
+  ]
+
+  include_dirs = [
+    "../../inc",
+    "../../inc/config",
+    "../inc",
+    "../wrap/inc",
+    "inc",
+    "../../../../bt_stack/bluedroid_turnkey",
+    "../../../../bt_stack/bluedroid_turnkey/mediatek/include",
+  ]
+
+  deps = [
+    
+  ]
+
+  deps += [
+    "//src/gap:libbtmw_gap",
+  ]
+
+  deps += [
+    "//src/gatt:libbtmw_gatt",
+  ]
+
+  deps += [
+    "//src/avrcp:libbtmw_avrcp",
+  ]
+
+  deps += [
+    "//src/a2dp:libbtmw_a2dp_default",
+  ]
+
+  deps += [
+    "//src/a2dp/src:libbtmw_a2dp_src",
+  ]
+
+  deps += [
+    "//src/a2dp/snk:libbtmw_a2dp_snk",
+  ]
+
+  deps += [
+    "//src/hfp:libbtmw_hfp",
+  ]
+
+  deps += [
+    "//src/hid:libbtmw_hid",
+  ]
+
+  deps += [
+    "//src/spp:libbtmw_spp",
+  ]
+
+  cflags_c = [
+    "-Lobj/osi",
+    "-losi",
+  ]
+
+  libs = [
+    "-ldl",
+    "-lpthread",
+    "-lresolv",
+    "-lrt",
+    "-laudio.a2dp.default",
+    "-lbluetooth.default",
+  ]
+}

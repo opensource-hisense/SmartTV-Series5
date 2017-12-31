@@ -1,0 +1,274 @@
+/*******************************************************************************
+*  Copyright Statement:
+*  --------------------
+*  This software is protected by Copyright and the information contained
+*  herein is confidential. The software may not be copied and the information
+*  contained herein may not be used or disclosed except with the written
+*  permission of MediaTek Inc. (C) 2013
+*
+*  BY OPENING THIS FILE, BUYER HEREBY UNEQUIVOCALLY ACKNOWLEDGES AND AGREES
+*  THAT THE SOFTWARE/FIRMWARE AND ITS DOCUMENTATIONS ("MEDIATEK SOFTWARE")
+*  RECEIVED FROM MEDIATEK AND/OR ITS REPRESENTATIVES ARE PROVIDED TO BUYER ON
+*  AN "AS-IS" BASIS ONLY. MEDIATEK EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES,
+*  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF
+*  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NONINFRINGEMENT.
+*  NEITHER DOES MEDIATEK PROVIDE ANY WARRANTY WHATSOEVER WITH RESPECT TO THE
+*  SOFTWARE OF ANY THIRD PARTY WHICH MAY BE USED BY, INCORPORATED IN, OR
+*  SUPPLIED WITH THE MEDIATEK SOFTWARE, AND BUYER AGREES TO LOOK ONLY TO SUCH
+*  THIRD PARTY FOR ANY WARRANTY CLAIM RELATING THERETO. MEDIATEK SHALL ALSO
+*  NOT BE RESPONSIBLE FOR ANY MEDIATEK SOFTWARE RELEASES MADE TO BUYER'S
+*  SPECIFICATION OR TO CONFORM TO A PARTICULAR STANDARD OR OPEN FORUM.
+*
+*  BUYER'S SOLE AND EXCLUSIVE REMEDY AND MEDIATEK'S ENTIRE AND CUMULATIVE
+*  LIABILITY WITH RESPECT TO THE MEDIATEK SOFTWARE RELEASED HEREUNDER WILL BE,
+*  AT MEDIATEK'S OPTION, TO REVISE OR REPLACE THE MEDIATEK SOFTWARE AT ISSUE,
+*  OR REFUND ANY SOFTWARE LICENSE FEES OR SERVICE CHARGE PAID BY BUYER TO
+*  MEDIATEK FOR SUCH MEDIATEK SOFTWARE AT ISSUE.
+*
+*  THE TRANSACTION CONTEMPLATED HEREUNDER SHALL BE CONSTRUED IN ACCORDANCE
+*  WITH THE LAWS OF THE STATE OF CALIFORNIA, USA, EXCLUDING ITS CONFLICT OF
+*  LAWS PRINCIPLES.  ANY DISPUTES, CONTROVERSIES OR CLAIMS ARISING THEREOF AND
+*  RELATED THERETO SHALL BE SETTLED BY ARBITRATION IN SAN FRANCISCO, CA, UNDER
+*  THE RULES OF THE INTERNATIONAL CHAMBER OF COMMERCE (ICC).
+*
+*******************************************************************************/
+
+/* FILE NAME:  bt_mw_hidd.h
+ * AUTHOR: zwei chen
+ * PURPOSE:
+ *      It provides hid  interface to c_bt_mw_hidd.c.
+ * NOTES:
+ */
+
+#ifndef __BT_MW_HID_H__
+#define __BT_MW_HID_H__
+
+#include "bluetooth.h"
+
+/****************************************************
+ * FUNCTION NAME: bluetooth_hidd_activate
+ * PURPOSE:
+ *      The function is used to activate hid device
+ * INPUT:
+ *      None
+ *
+ * OUTPUT:
+ *      None
+ * RETURN:
+ *      INT32:error code
+ * NOTES:
+ *      None
+ */
+INT32 bluetooth_hidd_activate(VOID);
+
+/****************************************************
+ * FUNCTION NAME: bluetooth_hidd_deactivate
+ * PURPOSE:
+ *      The function is used to deactivate hid device
+ * INPUT:
+ *      None
+ *
+ * OUTPUT:
+ *      None
+ * RETURN:
+ *      INT32:error code
+ * NOTES:
+ *      None
+ */
+INT32 bluetooth_hidd_deactivate(VOID);
+
+
+/****************************************************
+ * FUNCTION NAME: bluetooth_hidd_init
+ * PURPOSE:
+ *      The function is used to init hid profile for hid device
+ * INPUT:
+ *      None
+ *
+ * OUTPUT:
+ *      None
+ * RETURN:
+ *      INT32:error code
+ * NOTES:
+ *      None
+ */
+INT32 bluetooth_hidd_init(VOID);
+
+
+
+/****************************************************
+ * FUNCTION NAME: bluetooth_hidd_deinit
+ * PURPOSE:
+ *      The function is used to deinit hid profile for hid device
+ * INPUT:
+ *      None
+ *
+ * OUTPUT:
+ *      None
+ * RETURN:
+ *      INT32:error code
+ * NOTES:
+ *      None
+ */
+INT32 bluetooth_hidd_deinit(VOID);
+
+
+/****************************************************
+ * FUNCTION NAME: bluetooth_hidd_connect
+ * PURPOSE:
+ *      The function is used to connect  hid device
+ * INPUT:
+ *      pbt_addr:device address
+ *
+ * OUTPUT:
+ *      None
+ * RETURN:
+ *      INT32:error code
+ * NOTES:
+ *      None
+ */
+INT32 bluetooth_hidd_connect(CHAR *pbt_addr);
+
+
+/****************************************************
+ * FUNCTION NAME: bluetooth_hidd_disconnect
+ * PURPOSE:
+ *      The function is used to disconnect  hid device
+ * INPUT:
+ *      pbt_addr:device address
+ *
+ * OUTPUT:
+ *      None
+ * RETURN:
+ *      INT32:error code
+ * NOTES:
+ *      None
+ */
+INT32 bluetooth_hidd_disconnect(CHAR *pbt_addr);
+
+
+/****************************************************
+ * FUNCTION NAME: bluetooth_hidd_send_keyboard_data
+ * PURPOSE:
+ *      The function is used to sent  keyboard data
+ * INPUT:
+ *      ptData:keyboard data
+ *      dataSize: data size
+ *
+ * OUTPUT:
+ *      None
+ * RETURN:
+ *      INT32:error code
+ * NOTES:
+ *      None
+ */
+INT32 bluetooth_hidd_send_keyboard_data(char *ptData, int dataSize);
+
+/****************************************************
+ * FUNCTION NAME: bluetooth_hidd_send_mouse_data
+ * PURPOSE:
+ *      The function is used to sent  mouse data
+ * INPUT:
+ *      ptData:keyboard data
+ *      dataSize: data size
+ *
+ * OUTPUT:
+ *      None
+ * RETURN:
+ *      INT32:error code
+ * NOTES:
+ *      None
+ */
+INT32 bluetooth_hidd_send_mouse_data(char *ptData, int dataSize);
+
+
+/****************************************************
+ * FUNCTION NAME: bluetooth_hidd_send_consumer_data
+ * PURPOSE:
+ *      The function is used to sent  consumer data
+ * INPUT:
+ *      ptData:keyboard data
+ *      dataSize: data size
+ *
+ * OUTPUT:
+ *      None
+ * RETURN:
+ *      INT32:error code
+ * NOTES:
+ *      None
+ */
+INT32 bluetooth_hidd_send_consumer_data(char *ptData, int dataSize);
+
+
+/****************************************************
+ * FUNCTION NAME: bluetooth_hidd_send_data
+ * PURPOSE:
+ *      The function is used to sent   data
+ * INPUT:
+ *      ptdata:keyboard data
+ *      dataSize: data size
+ *
+ * OUTPUT:
+ *      None
+ * RETURN:
+ *      INT32:error code
+ * NOTES:
+ *      None
+ */
+INT32 bluetooth_hidd_send_data(char *ptData, int dataSize);
+
+/****************************************************
+ * FUNCTION NAME: bluetooth_handle_hidd_connect_cb
+ * PURPOSE:
+ *      The function is used to notify app connected
+ * INPUT:
+ *      bd_addr:  address
+ *
+ *
+ * OUTPUT:
+ *      None
+ * RETURN:
+ *      INT32:error code
+ * NOTES:
+ *      None
+ */
+INT32 bluetooth_handle_hidd_connect_cb(bt_bdaddr_t *bd_addr);
+
+/****************************************************
+ * FUNCTION NAME: bluetooth_handle_hidd_connect_cb
+ * PURPOSE:
+ *      The function is used to notify app connect failed
+ * INPUT:
+ *      bd_addr:  address
+ *
+ *
+ * OUTPUT:
+ *      None
+ * RETURN:
+ *      INT32:error code
+ * NOTES:
+ *      None
+ */
+INT32 bluetooth_handle_hidd_connect_fail_cb(bt_bdaddr_t *bd_addr);
+
+/****************************************************
+ * FUNCTION NAME: bluetooth_handle_hidd_disconnect_cb
+ * PURPOSE:
+ *      The function is used to notify app disconnected
+ * INPUT:
+ *      bd_addr:  address
+ *
+ *
+ * OUTPUT:
+ *      None
+ * RETURN:
+ *      INT32:error code
+ * NOTES:
+ *      None
+ */
+INT32 bluetooth_handle_hidd_disconnect_cb(bt_bdaddr_t *bd_addr);
+
+
+#endif
+
+
